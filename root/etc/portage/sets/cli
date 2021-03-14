@@ -1,0 +1,20 @@
+# Essentials
+app-arch/lzop
+app-arch/unrar
+app-misc/screen
+dev-vcs/git
+
+
+# Otherwise useful
+app-misc/detox
+app-portage/pfl
+app-text/pandoc
+media-gfx/tiv
+net-dns/bind-tools
+net-fs/curlftpfs
+net-fs/davfs2
+net-misc/whois
+sci-calculators/units
+sys-apps/smartmontools
+sys-apps/usbutils
+sys-process/glances

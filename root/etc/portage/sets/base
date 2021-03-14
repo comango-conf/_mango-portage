@@ -1,0 +1,26 @@
+# Base system
+app-admin/logrotate
+app-admin/sysklogd
+net-misc/dhcpcd
+net-misc/netifrc
+sys-kernel/linux-firmware
+sys-process/cronie
+
+
+# Portage goodies
+app-eselect/eselect-repository
+app-portage/eix
+app-portage/genlop
+app-portage/gentoolkit
+app-portage/layman
+
+
+# Other useful stuff
+app-admin/sudo
+app-shells/bash-completion
+app-text/tree
+net-misc/ntp
+sys-apps/dbus
+sys-fs/btrfs-progs
+sys-process/htop
+sys-process/lsof
