@@ -1,3 +1,4 @@
 dev-tex/latexmk
 dev-tex/latex-beamer
+dev-texlive/texlive-fontsextra
 virtual/latex-base
