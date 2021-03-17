@@ -3,5 +3,5 @@ dev-tex/latex-beamer
 dev-texlive/texlive-fontsextra
 dev-texlive/texlive-langenglish
 dev-texlive/texlive-langgerman
-dev-texlive/texlice-latexextra
+dev-texlive/texlive-latexextra
 virtual/latex-base
