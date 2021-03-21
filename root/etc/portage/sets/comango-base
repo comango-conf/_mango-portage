@@ -1,2 +1,4 @@
 @base
 @cli
+
+dev-util/github-cli
