@@ -12,6 +12,7 @@ app-eselect/eselect-repository
 app-portage/eix
 app-portage/genlop
 app-portage/gentoolkit
+app-portage/repoman
 
 # Other useful stuff
 app-admin/sudo
