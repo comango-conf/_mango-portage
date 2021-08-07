@@ -9,7 +9,6 @@ dev-vcs/git
 app-misc/detox
 app-portage/pfl
 app-text/pandoc
-media-gfx/tiv
 net-dns/bind-tools
 net-fs/curlftpfs
 net-fs/davfs2
