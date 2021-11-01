@@ -1,45 +1,45 @@
 diff --git a/lib/_emerge/MergeListItem.py b/lib/_emerge/MergeListItem.py
-index 938f801..d013264 100644
+index 87767c1..0347cd7 100644
 --- a/lib/_emerge/MergeListItem.py
 +++ b/lib/_emerge/MergeListItem.py
-@@ -52,13 +52,16 @@ class MergeListItem(CompositeTask):
- 		if pkg.type_name == "binary":
- 			pkg_color = "PKG_BINARY_MERGE"
- 			action_desc += " binary"
-+		else:
-+			action_desc += "       "
+@@ -64,13 +64,16 @@ class MergeListItem(CompositeTask):
+         if pkg.type_name == "binary":
+             pkg_color = "PKG_BINARY_MERGE"
+             action_desc += " binary"
++        else:
++            action_desc += "       "
  
- 		if build_opts.fetchonly:
- 			action_desc = "Fetching"
+         if build_opts.fetchonly:
+             action_desc = "Fetching"
  
-+		number_width = len(str(pkg_count.maxval))
- 		msg = "%s (%s of %s) %s" % \
- 			(action_desc,
--			colorize("MERGE_LIST_PROGRESS", str(pkg_count.curval)),
-+			colorize("MERGE_LIST_PROGRESS", str(pkg_count.curval).rjust(number_width)),
- 			colorize("MERGE_LIST_PROGRESS", str(pkg_count.maxval)),
- 			colorize(pkg_color, pkg.cpv + _repo_separator + pkg.repo))
- 
++        number_width = len(str(pkg_count.maxval))
+         msg = "%s (%s of %s) %s" % (
+             action_desc,
+-            colorize("MERGE_LIST_PROGRESS", str(pkg_count.curval)),
++            colorize("MERGE_LIST_PROGRESS", str(pkg_count.curval).rjust(number_width)),
+             colorize("MERGE_LIST_PROGRESS", str(pkg_count.maxval)),
+             colorize(pkg_color, pkg.cpv + _repo_separator + pkg.repo),
+         )
 diff --git a/lib/_emerge/PackageMerge.py b/lib/_emerge/PackageMerge.py
-index 1e7b58b..38d2442 100644
+index 80a2069..7bb3726 100644
 --- a/lib/_emerge/PackageMerge.py
 +++ b/lib/_emerge/PackageMerge.py
-@@ -17,14 +17,15 @@ class PackageMerge(CompositeTask):
- 			pkg_color = "PKG_BINARY_MERGE"
+@@ -19,14 +19,15 @@ class PackageMerge(CompositeTask):
+             pkg_color = "PKG_BINARY_MERGE"
  
- 		if pkg.installed:
--			action_desc = "Uninstalling"
-+			action_desc = "Uninstalling   "
- 			preposition = "from"
- 			counter_str = ""
- 		else:
--			action_desc = "Installing"
-+			action_desc = "Installing     "
- 			preposition = "to"
-+			number_width = len(str(pkg_count.maxval))
- 			counter_str = "(%s of %s) " % \
--				(colorize("MERGE_LIST_PROGRESS", str(pkg_count.curval)),
-+				(colorize("MERGE_LIST_PROGRESS", str(pkg_count.curval).rjust(number_width)),
- 				colorize("MERGE_LIST_PROGRESS", str(pkg_count.maxval)))
+         if pkg.installed:
+-            action_desc = "Uninstalling"
++            action_desc = "Uninstalling   "
+             preposition = "from"
+             counter_str = ""
+         else:
+-            action_desc = "Installing"
++            action_desc = "Installing     "
+             preposition = "to"
++            number_width = len(str(pkg_count.maxval))
+             counter_str = "(%s of %s) " % (
+-                colorize("MERGE_LIST_PROGRESS", str(pkg_count.curval)),
++                colorize("MERGE_LIST_PROGRESS", str(pkg_count.curval).rjust(number_width)),
+                 colorize("MERGE_LIST_PROGRESS", str(pkg_count.maxval)),
+             )
  
- 		msg = "%s %s%s" % \
